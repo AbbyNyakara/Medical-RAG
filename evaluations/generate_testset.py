@@ -5,9 +5,7 @@ from ragas.testset.synthesizers import SingleHopSpecificQuerySynthesizer
 from ragas.llms import LangchainLLMWrapper
 from ragas.embeddings import LangchainEmbeddingsWrapper
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.document_loaders import PyPDFLoader
 import logging
-import boto3
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 from typing import List
@@ -74,15 +72,17 @@ class TestsetFromETL:
         """Generate Synthetic test questions from s3 extracted docs"""
         generator_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
-        query_distribution = [
-            (SingleHopSpecificQuerySynthesizer(llm=generator_llm), 1.0)
-        ]
+        # query_distribution = [
+        #     (SingleHopSpecificQuerySynthesizer(llm=generator_llm), 1.0)
+        # ]
+        # Use default configuration instead
+
         run_config = RunConfig(
-        timeout=300,       # seconds for each OpenAI call
-        max_retries=8,     # let ragas retry more
-        max_workers=1,     # avoid heavy async parallelism
-        max_wait=60,       # max backoff between retries
-        log_tenacity=True  # log retries
+        timeout=300,      
+        max_retries=8,     
+        max_workers=1,     
+        max_wait=60,       
+        log_tenacity=True  
         )
 
 
@@ -184,10 +184,3 @@ if __name__ == "__main__":
 
     print("Extracted text S3 key:", s3_key_extracted)
     print("Generated", len(questions), "questions.")
-
-
-
-
-
-
-
