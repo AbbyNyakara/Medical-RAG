@@ -197,18 +197,7 @@ if __name__ == "__main__":
     pipeline = MedicalRAGPipeline(s3_bucket="medical-rag-docs-abigael-2026")
 
     # Index document
-    print("\n" + "=" * 60)
     print("INDEXING DOCUMENT")
-    print("=" * 60)
-
-    # index_result = pipeline.index_document(file_to_upload)
-    # print(f"Success: {index_result['success']}")
-    # print(f"Chunks: {index_result.get('chunking', {}).get('total_chunks', 'N/A')}")
-
-    # Answer question
-    # print("\n" + "=" * 60)
-    # print("ANSWERING QUESTION")
-    # print("=" * 60)
 
     result = pipeline.answer_question(query=question)
 
