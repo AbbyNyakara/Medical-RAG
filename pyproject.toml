@@ -1,5 +1,5 @@
 [project]
-name = "medical-rag-service"
+name = "medical-rag"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -28,6 +28,7 @@ dependencies = [
     "pinecone>=8.0.0",
     "pymupdf>=1.26.7",
     "pytesseract>=0.3.13",
+    "ragas>=0.4.3",
     "requests>=2.32.5",
     "sentence-transformers>=5.2.0",
     "torch==2.2.2",
