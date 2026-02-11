@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Who is Sarah Miller and what her medical history say?",
+    "reference": "Sarah Miller is a patient whose medical history includes a 5-day history of dry cough without relief from over-the-counter medications, and no other significant past medical history. She has no known drug allergies.",
+    "contexts": null
+  },
+  {
+    "question": "What the address of the patient Sarah Miller in Portland?",
+    "reference": "The address of the patient Sarah Miller in Portland is 1432 NE Knott St, Portland, OR.",
+    "contexts": null
+  },
+  {
+    "question": "How does the physical examination findings from the annual health exam of a patient correlate with the medical plans recommended by the provider?",
+    "reference": "The physical examination findings from the annual health exam, which included a normal HEENT and neurological exam, correlate with the medical plans recommended by the provider, Elizabeth L. Ryan. The normal findings support the plan to recommend continued adherence to preventative health screenings and to return annually, as indicated in the patient's medical records. This approach reflects a standard practice in primary care to maintain regular health checks when no adverse symptoms are reported.",
+    "contexts": null
+  },
+  {
+    "question": "How does the normal pulmonary exam reported in the patient's physical examination relate to the monitoring of vital signs and overall assessment of the patient's health during an annual physical?",
+    "reference": "The normal pulmonary exam, as reported in the patient's physical examination, indicates that there were no abnormalities in lung function, such as wheezes, rhonchi, or rales. This finding is crucial in the overall assessment of the patient's health during an annual physical, as it complements the monitoring of vital signs. The vital signs, which include a normal temperature of 98.6 F, pulse of 72 bpm, respirations of 14 rpm, blood pressure of 110/70 mmHg, and an oxygen saturation of 99% on room air, together with a normal pulmonary exam, suggest that the patient is in good respiratory and general health. This comprehensive evaluation helps in confirming the absence of acute respiratory or systemic conditions, thereby supporting the decision for routine follow-up and continued adherence to preventative health measures without immediate intervention.",
+    "contexts": null
+  },
+  {
+    "question": "How did the medical management of Emily Jones's patient, Sarah Miller, evolve from her initial presentation with a cough in 1999 to her subsequent annual physical in 2020?",
+    "reference": "In 1999, Sarah Miller presented with a chief complaint of a dry cough that had persisted for five days without relief from over-the-counter medications. At that time, her physical examination was normal, and there were no significant past medical history or medications noted. By 2020, Sarah Miller's medical management had evolved to focus on preventive care, as evidenced by her annual physical where she was up to date on immunizations, cancer screenings, and gynecologic care. She reported a healthy diet and regular exercise, and her vitals were stable, indicating a shift from acute symptom management to ongoing wellness and preventive care.",
+    "contexts": null
+  },
+  {
+    "question": "What does NKDA stand for in the medical records of Sarah Miller, and how is it relevant to her treatment?",
+    "reference": "NKDA stands for 'No Known Drug Allergies' in the medical records of Sarah Miller. This information is relevant to her treatment as it informs healthcare providers that she has no allergies to medications, which is crucial for prescribing drugs safely without risking allergic reactions.",
+    "contexts": null
+  }
+]
