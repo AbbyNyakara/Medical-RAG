@@ -85,7 +85,6 @@ class TestsetFromETL:
         log_tenacity=True  
         )
 
-
         try:
             # Load the text
             text = self.load_extracted_text(s3_extracted_key)
