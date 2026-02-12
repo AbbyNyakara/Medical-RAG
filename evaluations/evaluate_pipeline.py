@@ -1,7 +1,7 @@
 from ragas import EvaluationDataset, SingleTurnSample, evaluate
 from src.rag.pipeline import MedicalRAGPipeline
 from ragas.metrics.collections import (
-    Faithfulness,
+    # Faithfulness,
     FactualCorrectness,
     AnswerRelevancy,
     SemanticSimilarity,
@@ -16,6 +16,11 @@ from dotenv import load_dotenv
 import logging
 import json
 import pandas as pd
+
+"""
+# Faithfulness(llm=llm), -  how factually consistent a response is with the retrieved context
+# FactualCorrectness(llm=llm), #extent to which the generated response aligns with the reference.
+"""
 
 load_dotenv()
 
@@ -46,7 +51,6 @@ def build_eval_dataset_from_file(path: str) -> EvaluationDataset:
         )
 
     return EvaluationDataset(samples=samples)
-
 
 def run_rag_on_dataset(
     dataset: EvaluationDataset,
@@ -98,19 +102,19 @@ def evaluate_medical_rag(questions_path: str):
     emb = embedding_factory("openai",model="text-embedding-3-small", client=client)
 
     metrics = [
-        Faithfulness(llm=llm),
-        # FactualCorrectness(llm=llm),
+        
         AnswerRelevancy(llm=llm, embeddings=emb),
-        # SemanticSimilarity(embeddings=emb),
+        SemanticSimilarity(embeddings=emb), #semantic resemblance between a generated response and a reference (ground truth) answer.
     ]
 
     # 🔍 DEBUG: print types and instances
     for i, m in enumerate(metrics):
         print(f"Metric {i}: {m}, type: {type(m)}")
-        result = evaluate(
-            dataset=eval_dataset,
-            metrics=metrics,
-        )
+    
+    result = evaluate(
+        dataset=eval_dataset,
+        metrics=metrics,
+    )
 
     logger.info("Evaluation results:\n%s", result)
     return result
