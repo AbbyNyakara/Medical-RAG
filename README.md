@@ -12,62 +12,7 @@ A Retrieval-Augmented Generation (RAG) system for querying PDF medical documents
 
 ## The Data flow: 
 
-Extractor Text (OCR)-> Chunking -> Embedding -> Storage (Chroma DB) -> User Asks Question -> Embed User Query (Vectorize) -> Similarity Search of vector store to find close vectors+Associated content -> Pass retrieved content onto Prompt template (Hydrating)-> Pass hydrated prompt to LLM Return Response to user
-
-## Project Structure
-
-```
-medical-rag-system/
-├── src/
-│   ├── config/                    # Configurations
-│   │   ├── settings.py           # Main settings (env vars, AWS config)
-│   │   ├── chunking.py           # Chunking strategies & params
-│   │   └── aws.py               # AWS service configurations
-│   │
-│   ├── etl/                      # ETL Pipeline (Core)
-│   │   ├── extractor.py          # PDF/S3 extraction
-│   │   ├── chunker.py           # Text chunking
-│   │   ├── embedder.py          # Embedding generation
-│   │   └── loader.py            # Vector DB loading
-│   │
-│   ├── retrieval/               # Retrieval System
-│   │   ├── vector_store.py      # Vector DB interface
-│   │   ├── retriever.py         # Hybrid search logic
-│   │   └── reranker.py          # Optional result reranking
-│   │
-│   ├── generation/              # Response Generation
-│   │   ├── prompts.py           # Prompt templates
-│   │   └── llm.py              # LLM client (Bedrock/OpenAI)
-│   │
-│   ├── api/                     # FastAPI Application
-│   │   ├── main.py             # App entry point
-│   │   ├── routes/             # API endpoints
-│   │   └── middleware/         # Auth, logging, CORS
-│   │
-│   └── utils/                   # Shared utilities
-│       ├── aws_client.py       # AWS service clients
-│       ├── file_handlers.py    # PDF/text processing
-│       └── logging.py          # Logging setup
-│
-├── tests/                       # Test files
-│   ├── unit/                   # Unit tests
-│   ├── integration/            # Integration tests
-│   └── fixtures/               # Test data
-│
-├── deployment/                  # Deployment files
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   └── requirements.txt
-│
-├── notebooks/                   # Jupyter notebooks
-│   └── exploration.ipynb       # Experimentation
-│
-├── .env.example                 # Env template
-├── .gitignore
-├── README.md
-└── pyproject.toml              # Project config
-
-```
+Extractor Text (OCR)-> Chunking -> Embedding -> Storage (Pinecone) -> User Asks Question -> Embed User Query (Vectorize) -> Similarity Search of vector store to find close vectors+Associated content -> Pass retrieved content onto Prompt template (Hydrating)-> Pass hydrated prompt to LLM Return Response to user
 
 ## Prerequisites
 
@@ -97,8 +42,8 @@ This installs all dependencies from `pyproject.toml`, including:
 - `uvicorn` - ASGI server
 - `langchain` - LLM orchestration
 - `openai` - OpenAI API client
-- `chromadb` - Vector database
-- `pypdf` - PDF extraction
+- `Pinecone` - Vector database
+- `amazon textract` - PDF extraction / OCR
 - `python-dotenv` - Environment variables
 
 ### 3. Set Up Environment Variables
